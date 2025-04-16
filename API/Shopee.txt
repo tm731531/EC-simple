@@ -1,0 +1,1 @@
+https://open.shopee.com/documents/v2/v2.product.get_category?module=89&type=1
