@@ -35,27 +35,27 @@
 |----------------------------|--------------------------|
 | order.quantity.calculate   | 訂單數量與庫存計算處理   |
 
-### 🏪 各平台通用處理（normal）
+### 🏪 各平台通用處理（慢速-因應API打得比較重或多的）
 
 | Topic 名稱                     | 說明                       |
 |--------------------------------|----------------------------|
-| platform.91app.normal          | 91App 平台通用事件         |
-| platform.cyberbiz.normal       | Cyberbiz 平台通用事件      |
-| platform.easystore.normal      | Easystore 平台通用事件     |
-| platform.shopee.normal         | Shopee 平台通用事件        |
-| platform.shopify.normal        | Shopify 平台通用事件       |
-| platform.shopline.normal       | Shopline 平台通用事件      |
+| platform.91app.normal          | 91App          |
+| platform.cyberbiz.normal       | Cyberbiz       |
+| platform.easystore.normal      | Easystore      |
+| platform.shopee.normal         | Shopee         |
+| platform.shopify.normal        | Shopify        |
+| platform.shopline.normal       | Shopline       |
 
-### 🏪 各平台專用處理（細項）
+### 🏪 各平台專用處理（一般速-因應API打得比較即時或少量）
 
 | Topic 名稱                     | 說明                       |
 |--------------------------------|----------------------------|
-| platform.91app                | 91App 特定平台處理         |
-| platform.cyberbiz             | Cyberbiz 特定平台處理      |
-| platform.easystore            | Easystore 特定平台處理     |
-| platform.shopee               | Shopee 特定平台處理        |
-| platform.shopify              | Shopify 特定平台處理       |
-| platform.shopline             | Shopline 特定平台處理      |
+| platform.91app                | 91App         |
+| platform.cyberbiz             | Cyberbiz       |
+| platform.easystore            | Easystore      |
+| platform.shopee               | Shopee         |
+| platform.shopify              | Shopify        |
+| platform.shopline             | Shopline       |
 
 ---
 
