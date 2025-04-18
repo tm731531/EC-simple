@@ -16,6 +16,7 @@ EC-Simple 是一個用 .NET Core 8 打造的輕量級電子商務後台專案，
 - ✅ 可水平擴展至 Kubernetes 多 Pod 結構
 
 ---
+EC-infra 內有整個的Docker compose可快速了解需要什麼環境
 
 ## 📦 快速開始
 
