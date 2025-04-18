@@ -1,0 +1,27 @@
+# Build Results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+build/
+bin/
+obj/
+
+# Visual Studio files
+.vs/
+.vscode/
+*.user
+*.suo
+
+# Rider
+.idea/
+
+# Logs
+*.log
+
+# User-specific files
+*.userprefs
+
+# OS generated files
+.DS_Store
+Thumbs.db
