@@ -1,3 +1,5 @@
+
+```mermaid
 flowchart TB
     User[使用者/商家] --> API[API服務]
     API --> OrderService[訂單服務]
@@ -45,3 +47,5 @@ flowchart TB
     class ShopeeAPI,PChomeAPI,YahooAPI,OtherAPIs external
     class DB database
     class Kafka messaging
+	
+```
