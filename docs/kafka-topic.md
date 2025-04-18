@@ -113,3 +113,10 @@ Body  欄位說明
   }
 }
 ```
+
+
+## 📌 備註：
+
+- 所有事件請以 JSON 格式傳遞。
+- 所有平台請使用 job_id、order_no 作為最小識別單位。
+- Kafka topics 預設不使用 wildcard，請精確匹配訂閱。
