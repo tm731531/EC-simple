@@ -1,5 +1,5 @@
 using System;
-using EC_simple.Main;
+using EC_simple.Jobs;
 using static System.Reflection.Metadata.BlobBuilder;
 
 namespace EC_Simple_API.Jobs

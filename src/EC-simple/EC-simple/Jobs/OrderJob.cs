@@ -1,4 +1,5 @@
 using System;
+using EC_simple.Jobs;
 using EC_simple.Main;
 
 namespace EC_Simple_API.Jobs

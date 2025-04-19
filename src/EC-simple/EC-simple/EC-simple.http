@@ -1,4 +1,4 @@
-@EC_simple_HostAddress = http://localhost:5100
+@EC_simple_HostAddress = http://localhost:3310
 
 GET {{EC_simple_HostAddress}}/weatherforecast/
 Accept: application/json
