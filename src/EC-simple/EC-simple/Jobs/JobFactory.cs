@@ -1,8 +1,9 @@
 using System;
-using EC_simple.Jobs;
+using EC.simple.Jobs;
+using EC.simple.Jobs.Service;
 using static System.Reflection.Metadata.BlobBuilder;
 
-namespace EC_Simple_API.Jobs
+namespace EC.simple_API.Jobs
 {
     public class JobFactory
     {

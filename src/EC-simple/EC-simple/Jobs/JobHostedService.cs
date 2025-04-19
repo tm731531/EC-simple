@@ -1,4 +1,4 @@
-﻿using EC_Simple_API.Jobs;
+﻿using EC.simple.Jobs.Service;
 
 public class JobHostedService : BackgroundService
 {

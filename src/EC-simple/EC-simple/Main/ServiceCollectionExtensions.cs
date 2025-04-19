@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
-using EC_simple.Jobs;
+using EC.simple.Jobs;
 
-namespace EC_simple.Main
+namespace EC.simple.Main
 {
     public static class ServiceCollectionExtensions
     {

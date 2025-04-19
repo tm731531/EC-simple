@@ -1,6 +1,6 @@
 using System.Reflection;
-using EC_simple.Main;
-using EC_Simple_API.Jobs;
+using EC.simple.Main;
+using EC.simple_API.Jobs;
 
 var builder = WebApplication.CreateBuilder(args);
 

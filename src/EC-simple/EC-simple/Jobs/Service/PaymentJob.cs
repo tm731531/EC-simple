@@ -1,28 +1,23 @@
 using System;
-using EC_simple.Jobs;
-using EC_simple.Main;
+using EC.simple.Jobs;
+using EC.simple.Main;
 
-namespace EC_Simple_API.Jobs
+namespace EC.simple.Jobs.Service
 {
-    public class OrderJob : IJobWorker
+    public class PaymentJob : IJobWorker
     {
-        private readonly ILogger<OrderJob> _logger;
+        private readonly ILogger<PaymentJob> _logger;
+        public string JobName => "PaymentJob";
 
-        public string JobName => "OrderJob";
-
-        public void Execute()
+        public PaymentJob()
         {
-            Console.WriteLine("Order job is executing...");
+
+
         }
-        public OrderJob(ILogger<OrderJob> logger)
+        public PaymentJob(ILogger<PaymentJob> logger)
         {
             _logger = logger;
         }
-        public OrderJob()
-        {
-           
-        }
-
         public async Task ExecuteAsync(CancellationToken token)
         {
             while (!token.IsCancellationRequested)
@@ -31,17 +26,16 @@ namespace EC_Simple_API.Jobs
                 {
                     // 假設模擬連到 Kafka，做健康檢查
                     JobHealthStatus.IsKafkaConnected = true;
-                    _logger.LogInformation("Kafka 已連線並執行訂單處理。");
+                    _logger.LogInformation("db 已連線並執行支付處理。");
                     await Task.Delay(5000, token);
                 }
                 catch (Exception ex)
                 {
-                    _logger.LogError(ex, "Kafka 連線失敗");
+                    _logger.LogError(ex, "db 連線失敗");
                     JobHealthStatus.IsKafkaConnected = false;
                     await Task.Delay(5000, token);
                 }
             }
         }
-
     }
 }

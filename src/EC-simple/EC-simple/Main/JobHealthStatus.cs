@@ -1,4 +1,4 @@
-﻿namespace EC_simple.Main
+﻿namespace EC.simple.Main
 {
     public class JobHealthStatus
     {

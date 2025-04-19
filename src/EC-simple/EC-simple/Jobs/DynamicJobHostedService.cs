@@ -1,4 +1,5 @@
-﻿using EC_Simple_API.Jobs;
+﻿using EC.simple.Jobs.Service;
+using EC.simple_API.Jobs;
 
 public class DynamicJobHostedService : BackgroundService
 {
