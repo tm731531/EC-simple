@@ -1,10 +1,12 @@
 using System;
+using EC_simple.Main;
+using static System.Reflection.Metadata.BlobBuilder;
 
 namespace EC_Simple_API.Jobs
 {
     public class JobFactory
     {
-        public static IJob CreateJob(string jobType)
+        public static IJobWorker CreateJob(string jobType)
         {
             switch (jobType)
             {
@@ -16,5 +18,15 @@ namespace EC_Simple_API.Jobs
                     throw new ArgumentException("Invalid job type.");
             }
         }
+        private readonly IEnumerable<IJobWorker> _jobs;
+        public JobFactory(IEnumerable<IJobWorker> jobs)
+        {
+            _jobs = jobs;
+        }
+
+        public IJobWorker? GetJob(string jobName)
+        {
+            return _jobs.FirstOrDefault(j => j.JobName.Equals(jobName, StringComparison.OrdinalIgnoreCase));
+        }
     }
-}
+    }

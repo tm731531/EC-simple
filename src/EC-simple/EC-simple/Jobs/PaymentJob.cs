@@ -1,12 +1,16 @@
 using System;
+using EC_simple.Main;
 
 namespace EC_Simple_API.Jobs
 {
-    public class PaymentJob : IJob
+    public class PaymentJob : IJobWorker
     {
-        public void Execute()
+        public string JobName => "PaymentJob";
+
+        public async Task ExecuteAsync(CancellationToken cancellationToken)
         {
-            Console.WriteLine("Payment job is executing...");
+            // Job еч©Х
+            await Task.Delay(1000, cancellationToken);
         }
     }
 }
