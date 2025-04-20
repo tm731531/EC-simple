@@ -23,7 +23,8 @@ docker restart redpanda-console kowl
 docker ps -a
 ```
 
-> **kowl redpanda-console must wait for kafka is ready**
+> **kowl、redpanda-console must wait for kafka is ready**
+
 > **KRaft mode need not zk but must write CLUSTER_ID**
 
 
