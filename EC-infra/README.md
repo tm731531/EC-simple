@@ -78,3 +78,7 @@ netsh int ipv4 show excludedportrange protocol=tcp
 
 ```
 
+### broker need more than 3
+if broker <3 comsuming queue will have problem
+
+base on broker need >=3 ,kowl redpanda-console need depend on kafka1,kafka2,kafka3

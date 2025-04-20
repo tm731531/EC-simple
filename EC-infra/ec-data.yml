@@ -11,43 +11,123 @@ services:
       # - /d/EC/zk-data:/var/lib/zookeeper
       # - /d/EC/zk_datalog:/datalog
 
-  kafka:
+  kafka1:
     image: confluentinc/cp-kafka:7.5.0
-    container_name: kafka
+    container_name: kafka1
     # depends_on:
       # - zookeeper
-    networks:
-      - default
+    # networks:
+      # - kafka-net
     ports:
       - "9092:9092"
-      - "29092:29092"
-      - "9093:9093"
+      - "19092:19092"
     environment:
       KAFKA_BROKER_ID: 1
+      KAFKA_NODE_ID: 1
       KAFKA_PROCESS_ROLES: broker,controller
       KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
       # KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,CONTROLLER://0.0.0.0:9093
       # KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
       # KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,CONTROLLER:PLAINTEXT
+      # KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
+      # KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:29092,PLAINTEXT_HOST://0.0.0.0:9092,CONTROLLER://0.0.0.0:9093
+      # KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT,CONTROLLER:PLAINTEXT
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092
-      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:29092,PLAINTEXT_HOST://0.0.0.0:9092,CONTROLLER://0.0.0.0:9093
-      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
+      KAFKA_LISTENER_SECURITY_PROTOCOL: PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka1:9092,PLAINTEXT_HOST://localhost:19092
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,PLAINTEXT_HOST://0.0.0.0:19092,CONTROLLER://0.0.0.0:9093
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka1:9093,2@kafka2:9093,3@kafka3:9093
       KAFKA_CLUSTER_ID: YpE2F0XoTj2xZf6mS4eLmg
       CLUSTER_ID: YpE2F0XoTj2xZf6mS4eLmg
-      KAFKA_KRAFT_MODE: "true"  # 新增此行
+      KAFKA_KRAFT_MODE: true  # 新增此行
     volumes:
-      - /d/EC/kafka-data:/var/lib/kafka/data
+      - /d/EC/kafka-data1:/var/lib/kafka/data
+      
+
+  kafka2:
+    image: confluentinc/cp-kafka:7.5.0
+    container_name: kafka2
+    # depends_on:
+      # - zookeeper
+    # networks:
+      # - kafka-net
+    ports:
+      - "9094:9092"
+      - "19094:19094"
+    environment:
+      KAFKA_BROKER_ID: 2
+      KAFKA_NODE_ID: 2
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      # KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,CONTROLLER://0.0.0.0:9093
+      # KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      # KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,CONTROLLER:PLAINTEXT
+      # KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
+      # KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:29092,PLAINTEXT_HOST://0.0.0.0:9092,CONTROLLER://0.0.0.0:9093
+      # KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT,CONTROLLER:PLAINTEXT
+      KAFKA_LISTENER_SECURITY_PROTOCOL: PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka2:9092,PLAINTEXT_HOST://localhost:19094
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,PLAINTEXT_HOST://0.0.0.0:19094,CONTROLLER://0.0.0.0:9093
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka1:9093,2@kafka2:9093,3@kafka3:9093
+      KAFKA_CLUSTER_ID: YpE2F0XoTj2xZf6mS4eLmg
+      CLUSTER_ID: YpE2F0XoTj2xZf6mS4eLmg
+      KAFKA_KRAFT_MODE: true  # 新增此行
+    volumes:
+      - /d/EC/kafka-data2:/var/lib/kafka/data
+      
+      
+
+  kafka3:
+    image: confluentinc/cp-kafka:7.5.0
+    container_name: kafka3
+    # depends_on:
+      # - zookeeper
+    # networks:
+      # - kafka-net
+    ports:
+      - "9096:9092"
+      - "19096:19096"
+    environment:
+      KAFKA_BROKER_ID: 3
+      KAFKA_NODE_ID: 3
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      # KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,CONTROLLER://0.0.0.0:9093
+      # KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      # KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,CONTROLLER:PLAINTEXT
+      # KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
+      # KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:29092,PLAINTEXT_HOST://0.0.0.0:9092,CONTROLLER://0.0.0.0:9093
+      # KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT,CONTROLLER:PLAINTEXT
+      KAFKA_LISTENER_SECURITY_PROTOCOL: PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka3:9092,PLAINTEXT_HOST://localhost:19096
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,PLAINTEXT_HOST://0.0.0.0:19096,CONTROLLER://0.0.0.0:9093
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka1:9093,2@kafka2:9093,3@kafka3:9093
+      KAFKA_CLUSTER_ID: YpE2F0XoTj2xZf6mS4eLmg
+      CLUSTER_ID: YpE2F0XoTj2xZf6mS4eLmg
+      KAFKA_KRAFT_MODE: true  # 新增此行
+    volumes:
+      - /d/EC/kafka-data3:/var/lib/kafka/data
   kowl:
     image: quay.io/cloudhut/kowl:latest
     container_name: kowl
+    # depends_on:
+      # # - zookeeper
+      # - kafka
     depends_on:
-      # - zookeeper
-      - kafka
+      - kafka1
+      - kafka2
+      - kafka3
+    # networks:
+      # - kafka-net
     ports:
       - "8080:8080"
     environment:
-      - KAFKA_BROKERS=kafka:29092
+      - KAFKA_BROKERS=kafka1:9092,kafka2:9092,kafka3:9092
     volumes:
       -  /d/EC/kowl-storage:/data
      
@@ -57,9 +137,13 @@ services:
     ports:
       - "8085:8080"
     environment:
-      - KAFKA_BROKERS=kafka:29092
+      - KAFKA_BROKERS=kafka1:9092,kafka2:9092,kafka3:9092
     depends_on:
-      - kafka     
+      - kafka1
+      - kafka2
+      - kafka3
+    # networks:
+      # - kafka-net 
   # kafdrop:
     # image: obsidiandynamics/kafdrop
     # container_name: kafdrop
@@ -132,7 +216,9 @@ services:
     ports:
       - "9100:9100"
     restart: unless-stopped
-
+# networks:
+  # kafka-net:
+    # driver: bridge
 volumes:
   pgdata:
   redisdata:
