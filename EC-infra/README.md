@@ -13,17 +13,17 @@ docker-compose -f ec-data.yml up -d
 docker ps -a
 ```
 >  **
-kafka redis  kowl redpanda-console status is CREATED
+kowl redpanda-console status is CREATED
  **
 
-## start redis & kafka-ui
+## start kafka-ui
 
 ```bash
-docker restart redis redpanda-console kowl
+docker restart redpanda-console kowl
 docker ps -a
 ```
 
-> **kowl must wait for kafka is ready**
+> **kowl redpanda-console must wait for kafka is ready**
 > **KRaft mode need not zk but must write CLUSTER_ID**
 
 
