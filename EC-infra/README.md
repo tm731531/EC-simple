@@ -6,14 +6,14 @@ docker-compose -f ec-data.yml down
 ## download & start
 docker-compose -f ec-data.yml up -d
 docker ps -a
- **
+>  **
 kafka redis  kowl kafdrop status is CREATED
  **
 
 ## start kafka & redis
 docker restart kafka redis
 docker ps -a
- **
+>  **
 kowl kafdrop status is CREATED , wait for kafka is ready
 use docker logs kafka
  **
