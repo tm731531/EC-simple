@@ -7,6 +7,8 @@ services:
       ZOOKEEPER_TICK_TIME: 2000
     ports:
       - "2181:2181"
+    volumes:
+      - zk-data:/var/lib/zookeeper
 
   kafka:
     image: confluentinc/cp-kafka:7.5.0
@@ -22,6 +24,8 @@ services:
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_ALLOW_EVERYONE_IF_NO_ACL: "true"
+    volumes:
+      - kafka-data:/var/lib/kafka/data
   kowl:
     image: quay.io/cloudhut/kowl:latest
     container_name: kowl
@@ -33,9 +37,9 @@ services:
     environment:
       - KAFKA_BROKERS=kafka:9092
     volumes:
-      - kowl-storage:/data
+      -  /d/EC/kowl-storage:/data
       
-  cmak:
+  kafdrop:
     image: obsidiandynamics/kafdrop
     container_name: kafdrop
     depends_on:
@@ -67,7 +71,7 @@ services:
     ports:
       - "6380:6379"
     volumes:
-      - redisdata:/data
+      - /d/EC/redisdata:/data
 
   prometheus:
     image: prom/prometheus
@@ -88,7 +92,7 @@ services:
       - GF_SECURITY_ADMIN_USER=admin
       - GF_SECURITY_ADMIN_PASSWORD=admin
     volumes:
-      - grafana-storage:/var/lib/grafana
+      - /d/EC/grafana-storage:/var/lib/grafana
 
   cadvisor:
     image: gcr.io/cadvisor/cadvisor:v0.47.2
@@ -113,3 +117,5 @@ volumes:
   redisdata:
   grafana-storage:
   kowl-storage:
+  kafka-data:
+  zk-data:
