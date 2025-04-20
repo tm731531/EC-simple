@@ -18,4 +18,4 @@ docker ps -a
 
 > **kowl must wait for kafka is ready**
 
-> **KRAFT mode need not zk but must write cluster_id **
+> **KRAFT mode need not zk but must write cluster_id**
