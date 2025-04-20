@@ -1,0 +1,4 @@
+apiVersion: v2
+name: order-processing-job
+description: Long-running order processing job
+version: 0.1.0

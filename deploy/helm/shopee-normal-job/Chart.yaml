@@ -1,0 +1,4 @@
+apiVersion: v2
+name: shopee-normal-job
+description: Long-running shopee normal job
+version: 0.1.0

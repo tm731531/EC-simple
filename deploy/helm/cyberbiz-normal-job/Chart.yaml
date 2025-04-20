@@ -1,0 +1,4 @@
+apiVersion: v2
+name: call-to-cyberbiz-normal-job
+description: Long-running cyberbiz normal job
+version: 0.1.0

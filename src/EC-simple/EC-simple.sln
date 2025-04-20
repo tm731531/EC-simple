@@ -5,9 +5,9 @@ VisualStudioVersion = 17.13.35931.197
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EC.simple", "EC-simple\EC.simple.csproj", "{746A9312-DE28-4B62-B616-2CB5724EB4B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EC.Dao", "Dao\EC.Dao.csproj", "{FFBAE95D-0AC0-4C4E-824F-C962D2F315D4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EC.Dao", "EC-Dao\EC.Dao.csproj", "{FFBAE95D-0AC0-4C4E-824F-C962D2F315D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EC.Utils", "Utils\EC.Utils.csproj", "{DD0A3931-E846-4AC9-82A2-E3CFC5DFA23A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EC.Utils", "EC-Utils\EC.Utils.csproj", "{DD0A3931-E846-4AC9-82A2-E3CFC5DFA23A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

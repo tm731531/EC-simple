@@ -1,0 +1,14 @@
+image: your-registry/your-job-image:latest
+
+resources:
+  limits:
+    cpu: "500m"
+    memory: "512Mi"
+  requests:
+    cpu: "200m"
+    memory: "256Mi"
+
+settings:
+  platform: "backend"
+  region: "asia-east"
+  apiKey: "abc123xyz"

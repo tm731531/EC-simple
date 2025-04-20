@@ -1,4 +1,5 @@
 using System.Reflection;
+using EC.simple.Health;
 using EC.simple.Main;
 using EC.simple_API.Jobs;
 
@@ -18,6 +19,9 @@ builder.Services.RegisterAllJobWorkers(Assembly.GetExecutingAssembly());
 
 builder.Services.AddSingleton<JobFactory>(); 
 builder.Services.AddHostedService<DynamicJobHostedService>();
+
+
+builder.Services.AddHealthChecks().AddCheck<KafkaHealthCheck>("kafka");
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -28,7 +32,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.MapHealthChecks("/health");
 app.UseAuthorization();
 
 app.MapControllers();
