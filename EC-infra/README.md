@@ -82,3 +82,18 @@ netsh int ipv4 show excludedportrange protocol=tcp
 if broker <3 comsuming queue will have problem
 
 base on broker need >=3 ,kowl redpanda-console need depend on kafka1,kafka2,kafka3
+
+
+
+|REPOSITORY                                 |TAG       |IMAGE ID     | SIZE   |
+|---|---|---|---|
+|prom/prometheus                            |latest(v3.3.0)    |339ce86a5941 | 424MB  |
+|docker.redpanda.com/redpandadata/console   |latest(v3.0.0)    |38344b8d748b | 279MB  |
+|prom/node-exporter                         |latest(v1.9.1)    |d00a542e409e | 40.8MB |
+|grafana/grafana                            |latest(11.6.0)    |62d2b9d20a19 | 873MB  |
+|postgres                                   |15        |fe45ed1a824b | 608MB  |
+|redis                                      |7         |fbdbaea47b9a | 173MB  |
+|gcr.io/cadvisor/cadvisor                   |v0.47.2   |e6c562b5e983 | 122MB  |
+|confluentinc/cp-kafka                      |7.5.0     |fbbb6fa11b25 | 1.33GB |
+|quay.io/cloudhut/kowl                      |latest(v1.5.0)    |fbf55369af1e | 101MB  |
+
