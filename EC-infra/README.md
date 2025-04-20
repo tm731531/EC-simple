@@ -18,17 +18,17 @@ docker ps -a
 
 > **kowl must wait for kafka is ready**
 
-> **KRaft mode need not zk but must write cluster_id**
+> **KRaft mode need not zk but must write CLUSTER_ID**
 
 
 ---
 
-## Kafka KRaft Mode Requires a cluster_id (Base64 UUID)
+## Kafka KRaft Mode Requires a CLUSTER_ID (Base64 UUID)
 
 In Kafka's KRaft mode (when not using Zookeeper), a KAFKA_CLUSTER_ID must be provided at startup.
 
 ### ⚠️ Important Notes:
-- The cluster_id is not a regular UUID string.
+- The CLUSTER_ID is not a regular UUID string.
 
 - It must be a Base64 URL-safe encoded version of a UUID (without padding).
 
