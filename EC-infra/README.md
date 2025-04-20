@@ -47,3 +47,28 @@ u = uuid.uuid4()
 b64 = base64.urlsafe_b64encode(u.bytes).rstrip(b'=').decode('ascii')
 print(f"Kafka cluster ID: {b64}")
 ```
+
+---
+### Local Volume Persistence
+D:/EC/
+This includes:
+* Kafka: D:/EC/kafka-data
+* Redis: D:/EC/redisdata
+* Postgres: D:/EC/Data
+* Grafana: D:/EC/grafana-storage
+* Kowl: D:/EC/kowl-storage
+
+---
+###  Special port issue
+
+``` bash= 
+
+Error response from daemon: Ports are not available: exposing port TCP 0.0.0.0:6380 -> 127.0.0.1:0: listen tcp 0.0.0.0:6380: bind: An attempt was made to access a socket in a way forbidden by its access permissions.
+```
+for redis use 6379 is special port 
+check by 
+```bash=
+netsh int ipv4 show excludedportrange protocol=tcp
+
+```
+

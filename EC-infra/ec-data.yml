@@ -86,7 +86,7 @@ services:
     image: redis:7
     container_name: redis
     ports:
-      - "6380:6379"
+      - "6600:6379"
     volumes:
       - /d/EC/redisdata:/data
 
