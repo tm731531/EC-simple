@@ -11,17 +11,11 @@ docker ps -a
 kafka redis  kowl kafdrop status is CREATED
  **
 
-## start kafka & redis
-docker restart kafka redis
+## start redis & kafka-ui
+docker restart redis redpanda-console kowl
 
 docker ps -a
->  **
-kowl kafdrop status is CREATED , wait for kafka is ready
-use docker logs kafka
- **
 
-## start kowl & kafdrop
+> **kowl must wait for kafka is ready**
 
-docker restart kowl kafdrop
-
-docker ps -a
+> **KRAFT mode need not zk but must write cluster_id **

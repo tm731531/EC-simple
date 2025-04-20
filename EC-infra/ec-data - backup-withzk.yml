@@ -1,44 +1,39 @@
 services:
-  # zookeeper:
-    # image: confluentinc/cp-zookeeper:7.5.0
-    # container_name: zookeeper
-    # environment:
-      # ZOOKEEPER_CLIENT_PORT: 2181
-      # ZOOKEEPER_TICK_TIME: 2000
-    # ports:
-      # - "2181:2181"
-    # volumes:
-      # - /d/EC/zk-data:/var/lib/zookeeper
-      # - /d/EC/zk_datalog:/datalog
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.5.0
+    container_name: zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    ports:
+      - "2181:2181"
+    volumes:
+      - /d/EC/zk-data:/var/lib/zookeeper
+      - /d/EC/zk_datalog:/datalog
 
   kafka:
     image: confluentinc/cp-kafka:7.5.0
     container_name: kafka
-    # depends_on:
-      # - zookeeper
+    depends_on:
+      - zookeeper
     networks:
       - default
     ports:
       - "9092:9092"
-      - "9093:9093"
     environment:
       KAFKA_BROKER_ID: 1
-      KAFKA_PROCESS_ROLES: broker,controller
-      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
-      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,CONTROLLER://0.0.0.0:9093
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
-      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,CONTROLLER:PLAINTEXT
-      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
-      KAFKA_CLUSTER_ID: YpE2F0XoTj2xZf6mS4eLmg
-      CLUSTER_ID: YpE2F0XoTj2xZf6mS4eLmg
-      KAFKA_KRAFT_MODE: "true"  # 新增此行
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_ALLOW_EVERYONE_IF_NO_ACL: "true"
     volumes:
       - /d/EC/kafka-data:/var/lib/kafka/data
   kowl:
     image: quay.io/cloudhut/kowl:latest
     container_name: kowl
     depends_on:
-      # - zookeeper
+      - zookeeper
       - kafka
     ports:
       - "8080:8080"
@@ -46,28 +41,19 @@ services:
       - KAFKA_BROKERS=kafka:9092
     volumes:
       -  /d/EC/kowl-storage:/data
-     
-  console:
-    image: docker.redpanda.com/redpandadata/console:latest
-    container_name: redpanda-console
-    ports:
-      - "8085:8080"
-    environment:
-      - KAFKA_BROKERS=kafka:9092
+      
+  kafdrop:
+    image: obsidiandynamics/kafdrop
+    container_name: kafdrop
     depends_on:
-      - kafka     
-  # kafdrop:
-    # image: obsidiandynamics/kafdrop
-    # container_name: kafdrop
-    # depends_on:
-      # - zookeeper
-      # - kafka
-    # restart: unless-stopped
-    # ports:
-      # - "9000:9000"
-    # environment:
-      # ZK_HOSTS: zookeeper:2181
-      # KAFKA_BROKERCONNECT: kafka:9092
+      - zookeeper
+      - kafka
+    restart: unless-stopped
+    ports:
+      - "9000:9000"
+    environment:
+      ZK_HOSTS: zookeeper:2181
+      KAFKA_BROKERCONNECT: kafka:9092
       
   postgres:
     image: postgres:15
