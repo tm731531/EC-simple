@@ -13,7 +13,7 @@ docker-compose -f ec-data.yml up -d
 docker ps -a
 ```
 >  **
-kowl redpanda-console status is CREATED
+kowl、redpanda-console status is CREATED
  **
 
 ## start kafka-ui
