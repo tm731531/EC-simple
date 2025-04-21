@@ -8,7 +8,7 @@ EC-Simple 是一個用 .NET Core 8 打造的輕量級電子商務後台專案，
 
 ## 🚀 專案特色
 
-- ✅ 使用 .NET Core 8 開發
+- ✅ 使用 .NET 8 開發
 - ✅ Job as API：每個背景任務皆以獨立 API 呈現
 - ✅ 整合 Kafka 作為任務觸發機制
 - ✅ 使用 PostgreSQL 作為核心資料庫
