@@ -5,12 +5,6 @@ This project is an e-commerce backend processing framework, including data acces
 ---
 
 ## 🧩 Project Structure
-EC-Simple.sln 
-├── EC-Simple # 核心專案：主要工作流與 Job / API 執行邏輯 
-│ └── 引用：EC-Dao, EC-Utils 
-├── EC-Dao # 資料層模組，封裝與資料庫的互動邏輯 
-├── EC-Utils # 工具模組，提供共用函式與輔助邏輯 
-├── EC-UnitTest # 單元測試專案，使用 Console 為測試驅動主體
 
 EC-Simple.sln 
 ├── EC-Simple # Core service: Job / API orchestration and execution 
