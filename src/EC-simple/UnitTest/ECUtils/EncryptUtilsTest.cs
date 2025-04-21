@@ -11,7 +11,7 @@ namespace UnitTest.ECUtils
     {
 
 
-        private static string key = "12345678901234561234567890123456"; // 16 字元 = 128 bit
+        private static string key = "12345678901234561234567890123456"; // 32 字元 = 256 bit
         private static string iv = "6543210987654321";  // 16 字元 = 128 bit
         private static string plainText = "Hello AES World!";
         private static string encrypted = "zltcweLrHLFh97mf7NZWI3OojGwpzGXTbWTZgPQldPU=";

@@ -1,7 +1,5 @@
-using System;
-using EC.simple.Jobs;
+
 using EC.simple.Main;
-using EC.Utils;
 namespace EC.simple.Jobs.Service
 {
     public class PaymentJob : IJobWorker
@@ -28,8 +26,6 @@ namespace EC.simple.Jobs.Service
                     JobHealthStatus.IsKafkaConnected = true;
                     _logger.LogInformation("db 已連線並執行支付處理。");
                     Console.WriteLine("test");
-                  
-                    //Console.WriteLine(MathUtils.SumData(5, 6));
                     await Task.Delay(5000, token);
                 }
                 catch (Exception ex)
