@@ -1,5 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using UnitTest.ECUtils;
+using EC.UnitTest.ECUtils;
 
 Console.WriteLine("Hello, World!");
 

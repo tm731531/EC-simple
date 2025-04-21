@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EC.Dao", "EC-Dao\EC.Dao.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EC.Utils", "EC-Utils\EC.Utils.csproj", "{DD0A3931-E846-4AC9-82A2-E3CFC5DFA23A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{44A6BA6F-94AE-4011-BD36-3B6F841B4135}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EC.UnitTest", "UnitTest\EC.UnitTest.csproj", "{44A6BA6F-94AE-4011-BD36-3B6F841B4135}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -25,7 +25,6 @@ namespace EC.simple.Jobs.Service
                     // 假設模擬連到 Kafka，做健康檢查
                     JobHealthStatus.IsKafkaConnected = true;
                     _logger.LogInformation("db 已連線並執行支付處理。");
-                    Console.WriteLine("test");
                     await Task.Delay(5000, token);
                 }
                 catch (Exception ex)

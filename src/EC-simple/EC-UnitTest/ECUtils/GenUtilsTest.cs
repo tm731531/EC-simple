@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using EC.Utils;
 
-namespace UnitTest.ECUtils
+namespace EC.UnitTest.ECUtils
 {
     internal class GenUtilsTest
     {
