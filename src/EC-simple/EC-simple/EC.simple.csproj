@@ -19,4 +19,9 @@
     <Folder Include="Dto\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\EC-Dao\EC.Dao.csproj" />
+    <ProjectReference Include="..\EC-Utils\EC.Utils.csproj" />
+  </ItemGroup>
+
 </Project>
